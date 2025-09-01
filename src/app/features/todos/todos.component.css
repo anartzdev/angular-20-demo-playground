@@ -1,0 +1,8 @@
+.completed {
+  text-decoration: line-through;
+  color: #999;
+}
+
+li, input[type="checkbox" i] {
+    cursor: pointer;
+}

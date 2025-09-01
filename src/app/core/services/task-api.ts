@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { computed, effect, inject, Injectable, signal } from '@angular/core';
 import { toSignal } from '@angular/core/rxjs-interop';
-import { TodoApi } from '@models/task';
+import { TodoApi } from '@app/core/models/task';
 
 @Injectable({
   providedIn: 'root',

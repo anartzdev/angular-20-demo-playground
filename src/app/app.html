@@ -1,15 +1,1 @@
-@if (taskService.todos(); as todos) {
-  <p>Número de tareas Pendiente: {{ taskService.notCompletedCount() }}</p>
-  <ul>
-    @for (todo of todos; track todo.id) {
-    <li (click)="toggleCompleted(todo)">
-      <input type="checkbox" [checked]="todo.completed" />
-      <span [class.completed]="todo.completed">{{ todo.title }}</span>
-    </li>
-    }
-  </ul>
-} @else {
-<p>Cargando datos...</p>
-}
-<button (click)="checkAll(true)">Completar todos</button>&nbsp;&nbsp;<button (click)="checkAll(false)">Descompletar todos</button>
-
+<app-todos></app-todos>
