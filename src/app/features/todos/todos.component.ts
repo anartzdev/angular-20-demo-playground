@@ -1,6 +1,6 @@
 import { Component, inject, OnInit } from '@angular/core';
-import { TodoApi } from '@app/core/models/task';
-import { TaskApi } from '@app/core/services/task-api';
+import { TodoItem, TodoItemsApi } from '@app/core/models/todo';
+import { TodoApi } from '@app/core/services/task-api';
 
 @Component({
   selector: 'app-todos',
@@ -9,11 +9,11 @@ import { TaskApi } from '@app/core/services/task-api';
 })
 export class TodosComponent {
 
-  taskService = inject(TaskApi);
+  taskService = inject(TodoApi);
 
   private getTasks = () => this.taskService.todos() || [];
-  private updateTasks = (tasks: TodoApi[]) =>  this.taskService.updateTodos(tasks);
-  public toggleCompleted(todoToUpdate: TodoApi): void {
+  private updateTasks = (tasks: TodoItemsApi) =>  this.taskService.updateTodos(tasks);
+  public toggleCompleted(todoToUpdate: TodoItem): void {
 
     const updatedTodos = this.getTasks().map(todo => {
       if (todo.id === todoToUpdate.id) {

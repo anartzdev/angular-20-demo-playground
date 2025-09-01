@@ -1,20 +1,20 @@
 import { HttpClient } from '@angular/common/http';
 import { computed, effect, inject, Injectable, signal } from '@angular/core';
 import { toSignal } from '@angular/core/rxjs-interop';
-import { TodoApi } from '@app/core/models/task';
+import { TodoItemsApi } from '../models/todo';
 
 @Injectable({
   providedIn: 'root',
 })
-export class TaskApi {
+export class TodoApi {
   private http = inject(HttpClient);
   private API_URL = 'https://jsonplaceholder.typicode.com/todos?_limit=20';
 
   // ⭐️ Señal de solo lectura que carga datos de la API
-  private _apiTodos = toSignal(this.http.get<TodoApi[]>(this.API_URL));
+  private _apiTodos = toSignal(this.http.get<TodoItemsApi>(this.API_URL));
 
   // ⭐️ Señal de escritura que el componente puede modificar
-  public todos = signal<TodoApi[] | undefined>(undefined);
+  public todos = signal<TodoItemsApi | undefined>(undefined);
 
   // ⭐️ Señal `computed` que devuelve el número de tareas no completadas
   public notCompletedCount = computed(() => {
@@ -37,7 +37,7 @@ export class TaskApi {
   }
 
   // ⭐️ Método público para actualizar la señal de tareas
-  public updateTodos(updatedList: TodoApi[]): void {
+  public updateTodos(updatedList: TodoItemsApi): void {
     this.todos.set(updatedList);
   }
 }
