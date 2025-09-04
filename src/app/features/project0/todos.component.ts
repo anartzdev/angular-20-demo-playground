@@ -1,9 +1,12 @@
+import { CommonModule } from '@angular/common';
 import { Component, inject, OnInit } from '@angular/core';
 import { TodoItem, TodoItemsApi } from '@app/core/models/todo';
 import { TodoApi } from '@app/core/services/task-api';
 
 @Component({
   selector: 'app-todos',
+  standalone: true,
+  imports: [CommonModule],
   templateUrl: './todos.component.html',
   styleUrls: ['./todos.component.css']
 })

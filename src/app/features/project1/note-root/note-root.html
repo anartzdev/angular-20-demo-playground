@@ -1,0 +1,12 @@
+<div class="app-container">
+  <h1>Mini-App de Notas</h1>
+  <app-note-form [noteToEdit]="editingNote()" (save)="onSaveNote($event)">
+  </app-note-form>
+
+  <app-note-list
+    [notes]="notes()"
+    (edit)="onEditNote($event)"
+    (delete)="onDeleteNote($event)"
+  >
+  </app-note-list>
+</div>

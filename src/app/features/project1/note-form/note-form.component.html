@@ -1,0 +1,39 @@
+<div class="note-form-card">
+  <h2>{{ isEditing() ? 'Editar Nota' : 'Nueva Nota' }}</h2>
+  <form [formGroup]="noteForm" (ngSubmit)="saveNote()">
+    <input
+      formControlName="title"
+      class="input-field"
+      placeholder="Título de la nota"
+      type="text"
+    />
+    <div
+      class="validation-message"
+      *ngIf="noteForm.get('title')?.invalid && (noteForm.get('title')?.dirty || noteForm.get('title')?.touched)"
+    >
+      El título es obligatorio.
+    </div>
+    <textarea
+      formControlName="content"
+      class="textarea-field"
+      placeholder="Contenido de la nota"
+    ></textarea>
+    <div
+      class="validation-message"
+      *ngIf="noteForm.get('content')?.invalid && (noteForm.get('content')?.dirty || noteForm.get('content')?.touched)"
+    >
+      El contenido es obligatorio.
+    </div>
+    <div class="form-actions">
+      @if (isEditing()) {
+      <button (click)="clearForm()" class="cancel-button">Cancelar</button>
+      }
+      <button
+        class="save-button"
+        [disabled]="noteForm.invalid"
+      >
+        Guardar
+      </button>
+    </div>
+  </form>
+</div>

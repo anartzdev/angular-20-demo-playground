@@ -1,0 +1,16 @@
+<div class="note-grid">
+  @for (note of notes(); track note.id) {
+  <div class="note-card">
+    <h3 class="note-title">{{ note.title }}</h3>
+    <p class="note-content">{{ note.content }}</p>
+    <div class="note-actions">
+      <button (click)="edit.emit(note)" class="edit-button">Editar</button>
+      <button (click)="delete.emit(note)" class="delete-button">
+        Eliminar
+      </button>
+    </div>
+  </div>
+  } @empty {
+  <p class="empty-message">No hay notas todavía. ¡Crea una!</p>
+  }
+</div>

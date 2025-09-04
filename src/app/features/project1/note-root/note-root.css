@@ -1,0 +1,14 @@
+.app-container {
+  max-width: 64rem;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 1rem;
+  font-family: Arial, sans-serif; /* Fallback font */
+}
+.app-container h1 {
+  font-size: 1.875rem;
+  font-weight: bold;
+  text-align: center;
+  margin-top: 1.5rem;
+  margin-bottom: 1.5rem;
+}
